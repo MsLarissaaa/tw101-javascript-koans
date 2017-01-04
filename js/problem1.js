@@ -20,15 +20,29 @@
 */
 
 
+// helper function for output
 function changeElementText(element, answer) {
-    $(element).text(answer);
+  $(element).text(answer);
 }
 
 function kiteGame(numberOfKites) {
-    changeElementText("#numberOfKites", numberOfKites);
-    var answer = "";
+  changeElementText("#numberOfKites", numberOfKites);
 
-    // write some code here!
-
-    changeElementText("#answer", answer);
+  changeElementText("#answer", buildAnswer(numberOfKites));
 }
+
+function buildAnswer(numberOfKites) {
+  var answer = "";
+  for (var i = 1; i <= numberOfKites; i++) {
+    if (i % 15 == 0)
+      answer += " Peche! Ipo kaate! ";
+    else if (i % 3 == 0)
+      answer += " Peche! ";
+    else if (i % 5 == 0)
+      answer += " Ipo kaate! ";
+    else
+      answer += i + " ";
+  }
+  return answer;
+}
+
