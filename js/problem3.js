@@ -33,19 +33,27 @@
  Then the meter displays the total fare as Rs 84
 
 */
-
 function changeElementText(element, answer) {
-    $(element).text(answer);
+  $(element).text(answer);
 }
 
 function fareForRide(distanceTraveled, timeWaiting, isNight) {
-    changeElementText("#distanceTraveled", "some");
-    changeElementText("#timeWaiting", "some");
-    changeElementText("#nightOrDay", "night or day");
-    var fare = "some amount";
+  changeElementText("#distanceTraveled", distanceTraveled);
+  changeElementText("#timeWaiting", (timeWaiting + " minutes"));
+  changeElementText("#nightOrDay", dayOrNight[isNight]);
+  var fare;
 
-    // write some code here!
+  fare = (20 + (8 * (distanceTraveled - 1)) + (4 * timeWaiting)) * timeFactor[isNight];
 
-    changeElementText("#fare", fare);
+  changeElementText("#fare", fare);
 }
 
+var dayOrNight = {
+  true: "night",
+  false: "before"
+}
+
+var timeFactor = {
+  true: 1.5,
+  false: 1
+}
