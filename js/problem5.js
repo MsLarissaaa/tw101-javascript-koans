@@ -33,4 +33,31 @@
      count: 7
  */
 
-// Write your JavaScript here
+function changeElementText(element, answer) {
+  $(element).text(answer);
+}
+
+function correctAdvertisement(erroneousAd) {
+  changeElementText("#originalAd", displayOriginal(erroneousAd));
+  erroneousAd[1].reverse();
+  var merged = [].concat.apply([], erroneousAd);
+  var correctedString = merged.join(" ");
+
+  changeElementText("#correctedAd", correctedString);
+  changeElementText("#wordCount", getWordCount(merged));
+}
+
+function getWordCount(array) {
+  var count = array.length;
+  return count;
+}
+
+function displayOriginal(adArray) {
+  var adString = "";
+  for (i = 0; i < adArray.length; i++) {
+    adString += adArray[i].join(" ") + "<br />";
+//    Can change <br /> to \n if working outside of <script>
+  }
+  return adString;
+}
+
