@@ -43,16 +43,16 @@ function isTrafficJam(numberOfAutoRickshaws, isAfterEightPm) {
   changeElementText("#beforeOrAfter", currentTime[isAfterEightPm]);
   var answer = "";
 
-  if (isAfterEightPm && numberOfAutoRickshaws > 40) {
-    answer = "a";
+  if (!isAfterEightPm && numberOfAutoRickshaws > 40) {
+    answer = "Yes, a traffic jam is predicted.";
   } else {
-    answer = "no";
+    answer = "No, no traffic jam is predicted.";
   }
 
   changeElementText("#aOrNo", answer);
 }
 
 var currentTime = {
-  true: "after",
-  false: "before"
+  true: "after 8pm",
+  false: "before 8pm"
 }

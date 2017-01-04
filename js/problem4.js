@@ -26,4 +26,19 @@
 
 */
 
-// Write your JavaScript here
+function countMoney() {
+  var indianCurrency = [5, 10, 20, 50, 100, 500, 1000];
+  var i;
+  var total = 0;
+  for (i = 0; i < arguments.length; i++) {
+    if (indianCurrency.includes(arguments[i])) {
+      total += arguments[i];
+    } else {
+      return total;
+    }
+  }
+  return total;
+}
+
+x = countMoney(10, 20, 100);
+y = countMoney(20, 50, 10, 20, 13, 500)
